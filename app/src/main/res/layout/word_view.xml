@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="word"
+            type="com.example.dictionary.model.Word" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/marginx"
+        android:layout_marginBottom="@dimen/marginx">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                bind:layout_constraintGuide_begin="100dp" />
+
+            <TextView
+                android:id="@+id/wordLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/word"
+                bind:layout_constraintRight_toLeftOf="@+id/guideline"
+                bind:layout_constraintStart_toStartOf="parent"
+                bind:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/word"
+                tools:visibility="visible" />
+
+
+            <TextView
+                android:id="@+id/wordValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{word.getWord()}"
+                bind:layout_constraintBottom_toTopOf="@id/definitionValue"
+                bind:layout_constraintEnd_toEndOf="parent"
+                bind:layout_constraintLeft_toRightOf="@+id/wordLabel"
+                bind:layout_constraintStart_toEndOf="@+id/guideline"
+                tools:text="wat"
+                tools:visibility="visible" />
+
+
+            <TextView
+                android:id="@+id/definitionLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/definition"
+                bind:layout_constraintStart_toStartOf="parent"
+                bind:layout_constraintTop_toBottomOf="@+id/wordLabel"
+                tools:text="@string/definition"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/definitionValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{word.getDefinition()}"
+                bind:layout_constraintEnd_toEndOf="parent"
+                bind:layout_constraintLeft_toRightOf="@+id/definitionLabel"
+                bind:layout_constraintStart_toEndOf="@+id/guideline"
+                bind:layout_constraintTop_toBottomOf="@+id/wordValue"
+                tools:text="The only [proper] [response] to something that makes absolutely [no sense]."
+                tools:visibility="visible" />
+
+
+            <TextView
+                android:id="@+id/thumbsDownLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/thumbs_down"
+                bind:layout_constraintEnd_toStartOf="@+id/thumbsDownValue"
+                bind:layout_constraintStart_toStartOf="parent"
+                bind:layout_constraintTop_toBottomOf="@+id/definitionValue"
+                tools:text="@string/thumbs_down"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/thumbsDownValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{word.getThumbsDown()}"
+                bind:layout_constraintBaseline_toBaselineOf="@id/thumbsDownLabel"
+                bind:layout_constraintEnd_toStartOf="@+id/thumbsUpLabel"
+                bind:layout_constraintStart_toEndOf="@id/thumbsDownLabel"
+                tools:text="1234"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/thumbsUpLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/thumbs_up"
+                bind:layout_constraintBaseline_toBaselineOf="@id/thumbsDownValue"
+                bind:layout_constraintEnd_toStartOf="@+id/thumbsUpValue"
+                bind:layout_constraintStart_toEndOf="@id/thumbsDownValue"
+                tools:text="@string/thumbs_up"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/thumbsUpValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{word.getThumbsUp()}"
+                bind:layout_constraintBaseline_toBaselineOf="@id/thumbsUpLabel"
+                bind:layout_constraintEnd_toEndOf="parent"
+                bind:layout_constraintStart_toEndOf="@id/thumbsUpLabel"
+                tools:text="@string/thumbs_up"
+                tools:visibility="visible" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">dictionary</string>
+
+    <string name="enter_a_search_term">Enter a search term</string>
+    <string name="search">Search</string>
+    <string name="sortAscending">Sort Likes</string>
+    <string name="sortDescending">Sort Dislikes</string>
+
+    <string name="word">Word</string>
+    <string name="definition">Definition</string>
+    <string name="thumbs_down">Dislikes</string>
+    <string name="thumbs_up">Likes</string>
+</resources>
